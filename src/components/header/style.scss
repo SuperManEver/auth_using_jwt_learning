@@ -1,0 +1,24 @@
+.header {
+  background-color: gainsboro;
+
+  ul {
+    display: flex;
+    padding: 1em;
+
+    li {
+      margin-left: 2em;
+
+      &:first-child {
+        margin-left: none;
+      }
+
+      a {
+        text-decoration: none;
+
+        &.activeLink {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

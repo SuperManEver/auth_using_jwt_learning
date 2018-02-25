@@ -1,0 +1,39 @@
+.formContainer {
+  width: 48%;
+  margin: 20% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h3 {
+    margin-bottom: 0.6em;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: monospace;
+  }
+
+  input {
+    padding: 6px 4px;
+
+    &:last-of-type {
+      margin-top: 0.6em;
+    }
+  }
+
+  footer {
+    display: flex;
+    margin-top: 0.8em;
+
+    button {
+      flex: 1;
+    }
+  }
+
+  a {
+    text-align: center;
+    margin-top: 1.6em;
+    text-decoration: none;
+    font-size: 90%;
+    font-family: monospace;
+  }
+}
