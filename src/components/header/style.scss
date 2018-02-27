@@ -12,6 +12,10 @@
         margin-left: none;
       }
 
+      &:last-child {
+        margin-left: auto;
+      }
+
       a {
         text-decoration: none;
 
