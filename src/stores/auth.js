@@ -1,6 +1,8 @@
 import { observable, reaction, computed } from 'mobx';
 import isNull from 'lodash/isNull';
 
+import Notify from './notification';
+
 class Auth {
   @observable token = null;
 
@@ -39,7 +41,7 @@ const authStore = new Auth();
 
 const onAuth = reaction(
   () => authStore.token,
-  token => console.log(`new token is ${token}`),
+  token => Notify.showMessage({ message: 'You have been logged in!' }),
 );
 
 export default authStore;

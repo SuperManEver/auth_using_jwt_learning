@@ -7,10 +7,12 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { Provider, inject, observer } from 'mobx-react';
+import NotificationSystem from 'react-notification-system';
 
 import css from './global.scss';
 
 import AuthStore from './stores/auth';
+import Notifications from './stores/notification';
 
 import Header from './components/header';
 import InstructionsPage from './pages/instructions';
@@ -21,6 +23,10 @@ import SignupPage from './pages/signup';
 @inject('auth')
 @observer
 class App extends Component {
+  componentDidMount() {
+    Notifications.init(this.refs.notificationSystem);
+  }
+
   get auth() {
     return this.props.auth;
   }
@@ -68,6 +74,11 @@ class App extends Component {
               <Route path="/signup" component={SignupPage} />
             </Switch>
           </div>
+          <NotificationSystem
+            className="notification"
+            ref="notificationSystem"
+            allowHTML
+          />
         </section>
       </Router>
     );
@@ -77,7 +88,7 @@ class App extends Component {
 const mountingElement = document.getElementById('main');
 
 render(
-  <Provider auth={AuthStore}>
+  <Provider auth={AuthStore} Notify={Notifications}>
     <App />
   </Provider>,
   mountingElement,
