@@ -44,7 +44,16 @@ class App extends Component {
                   </div>
                 )}
               />
-              <Route path="/instructors" component={InstructionsPage} />
+              <Route
+                path="/instructors"
+                render={props =>
+                  isLoggedIn ? (
+                    <InstructionsPage {...props} />
+                  ) : (
+                    <Redirect to="/login" />
+                  )
+                }
+              />
               <Route path="/profile" component={ProfilePage} />
               <Route
                 path="/login"

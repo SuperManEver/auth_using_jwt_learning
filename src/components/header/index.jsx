@@ -35,7 +35,7 @@ class Header extends Component {
             </li>
 
             {isLoggedIn && (
-              <li>
+              <li className={css.pushRight}>
                 <NavLink activeClassName={css.activeLink} to="/logout">
                   Logout
                 </NavLink>
