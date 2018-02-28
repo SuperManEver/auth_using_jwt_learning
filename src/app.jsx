@@ -72,6 +72,14 @@ class App extends Component {
                 }
               />
               <Route path="/signup" component={SignupPage} />
+              <Route
+                path="/logout"
+                render={() => {
+                  this.auth.logout();
+
+                  return <Redirect to="/" />;
+                }}
+              />
             </Switch>
           </div>
           <NotificationSystem
